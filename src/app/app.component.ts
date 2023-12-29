@@ -6,5 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-survey';
+  
+  showSurveyModal: boolean = true;
+  showNotificationModal: boolean = false;
+  notificationTitle: string = '';
+  notificationMessage: string = '';
+
+  closeSurveyModal() { 
+    this.notificationTitle = 'Thank you!';
+    this.notificationMessage = 'Your feedback has been sent.';
+    this.showSurveyModal = false;
+    this.showNotificationModal = true;
+  }
+
+  closeNotificationModal() {
+    this.showNotificationModal = false;
+    this.showSurveyModal = true;
+  }
+
 }

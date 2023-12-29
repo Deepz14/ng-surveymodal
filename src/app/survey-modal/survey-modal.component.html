@@ -2,7 +2,7 @@
     <div class="modal-body pb-10 pt-5">
         <h1 class="text-center font-bold p-3">Customer Satisfaction Survey</h1>
         <p class="text-sm text-gray-300 text-center px-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum doloribus cumque facilis enim, illo magnam voluptatibus quasi soluta illum incidunt ducimus deleniti odit? Laboriosam dicta eius, officiis laborum blanditiis vero</p>
-        <form [formGroup]="surveyForm" class="">
+        <form [formGroup]="surveyForm" (ngSubmit)="submitSurvey()">
             <div class="flex mx-8 mt-5">
                 <h3 class="font-semibold">Customer Name: </h3>
                 <input formControlName="customerName" class="ml-2 px-2 bg-transparent border border-white w-[230px]" type="text" />

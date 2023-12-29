@@ -1,1 +1,2 @@
-<app-survey-modal></app-survey-modal>
+<app-survey-modal *ngIf="showSurveyModal" (closeSurvey)="closeSurveyModal()"></app-survey-modal>
+<app-notification-prompt [title]="notificationTitle" [message]="notificationMessage" *ngIf="showNotificationModal" (closeModal)="closeNotificationModal()"></app-notification-prompt>

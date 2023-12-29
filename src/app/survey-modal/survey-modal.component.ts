@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormArray } from '@angular/forms';
 
 @Component({
@@ -8,8 +8,10 @@ import { FormBuilder, FormArray } from '@angular/forms';
 })
 export class SurveyModalComponent implements OnInit{
 
-  constructor(private fb: FormBuilder) {}
+  @Output() closeSurvey = new EventEmitter<boolean>();
   surveyForm: any;
+  constructor(private fb: FormBuilder) {}
+  
 
   ngOnInit(): void {
     this.surveyForm = this.fb.group({
@@ -38,6 +40,11 @@ export class SurveyModalComponent implements OnInit{
         option: ['6']
       }))
     })
+  }
+
+  submitSurvey(){
+    console.log("survey data: ", this.surveyForm.getRawValue());
+    this.closeSurvey.emit(true);
   }
 
 }
