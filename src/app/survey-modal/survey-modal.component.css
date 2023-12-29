@@ -1,0 +1,85 @@
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 3%;
+    background-color: #000;
+    z-index: 2;
+    padding-bottom: 30px;
+
+}
+
+.modal-body{
+    background-color: rgb(47,47, 47);
+    box-shadow: 0px 0px 5px 0px gray;
+    color: #fff;
+    max-height: 100vh;
+    overflow: scroll;
+}
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    z-index: 1;
+}
+
+.options-header, .options-body{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr) 2fr;
+}
+
+.options-data h6, .option-radio input{
+ padding-top: 18px;
+}
+
+.emoji {
+    font-size: 22px;
+}
+
+.radio-container{
+    border-bottom: 1px solid gray;
+}
+
+.radio-inp{
+    height: 16px;
+    width: 16px;
+}
+
+.star-ratings{
+    margin-top: 24px;
+}
+
+.star-icon{
+    font-size: 36px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.comments{
+    color: gray;
+    background-color: #c4c4c4;
+    font-size: 14px;
+}
+
+.btn-submit{
+    font-size: 14px;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+  }
+  
+.modal-body::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
+  }
+  
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: gray;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 1px solid rgb(47,47, 47);  /* creates padding around scroll thumb */
+  }

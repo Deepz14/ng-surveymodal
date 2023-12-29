@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+
+*{
+    font-size: 10px;
+}
+
+h1{
+    font-size: 22px;
+}
+
+h3{
+    font-size: 16px;
+}
+
+h6{
+    font-size: 12px;
+}
+p{
+    font-size: 14px;
+}

@@ -1,0 +1,83 @@
+<div class="modal">
+    <div class="modal-body pb-10 pt-5">
+        <h1 class="text-center font-bold p-3">Customer Satisfaction Survey</h1>
+        <p class="text-sm text-gray-300 text-center px-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum doloribus cumque facilis enim, illo magnam voluptatibus quasi soluta illum incidunt ducimus deleniti odit? Laboriosam dicta eius, officiis laborum blanditiis vero</p>
+        <form [formGroup]="surveyForm" class="">
+            <div class="flex mx-8 mt-5">
+                <h3 class="font-semibold">Customer Name: </h3>
+                <input formControlName="customerName" class="ml-2 px-2 bg-transparent border border-white w-[230px]" type="text" />
+            </div>
+            <div class="options-header border border-slate-300 text-center my-4 mx-8 px-3 py-5">
+                <div class="options-data">
+                    <span class="text-xl emoji text-gray-600">😶</span>
+                    <h6 class="text-gray-300">Not Applicable</h6>
+                </div>
+                <div class="options-data">
+                    <span class="text-xl emoji text-gray-600">😯</span>
+                    <h6 class="text-gray-300">Strongly disagree</h6>
+                </div>
+                <div class="options-data">
+                    <span class="text-xl emoji text-gray-600">☹</span>
+                    <h6 class="text-gray-300">Disagree</h6>
+                </div>
+                <div class="options-data">
+                    <span class="text-xl emoji text-gray-600">😐</span>
+                    <h6 class="text-gray-300">Neither agree nor disagree</h6>
+                </div>
+                <div class="options-data">
+                    <span class="text-xl emoji text-gray-600">🙂</span>
+                    <h6 class="text-gray-300">Agree</h6>
+                </div>
+                <div class="options-data">
+                    <span class="text-xl emoji text-gray-600">😀</span>
+                    <h6 class="text-gray-300">Strongly agree</h6>
+                </div>
+                <div class="options-data">
+                    <h6 class="text-gray-300 font-semibold">To which do you agree/disagree with the following statements</h6>
+                </div>
+            </div>
+            <div formArrayName="reviews" *ngFor="let review of this.surveyForm.get('reviews')['controls']; let i=index;" class="radio-container">
+                <div [formGroupName]="i" class="options-body text-center mx-8 px-3 py-5">
+                    <div class="option-radio">
+                        <input formControlName="option" value="1" class="radio-inp" type="radio" />
+                    </div>
+                    <div class="option-radio">
+                        <input formControlName="option" value="2" class="radio-inp" type="radio" />
+                    </div>
+                    <div class="option-radio">
+                        <input formControlName="option" value="3" class="radio-inp" type="radio" />
+                    </div>
+                    <div class="option-radio">
+                        <input formControlName="option" value="4" class="radio-inp" type="radio" />
+                    </div>
+                    <div class="option-radio">
+                        <input formControlName="option" value="5" class="radio-inp" type="radio" />
+                    </div>
+                    <div class="option-radio">
+                        <input formControlName="option" value="6" class="radio-inp" type="radio" />
+                    </div>
+                     <div class="option-radio">
+                        <h6 class="text-gray-300 font-semibold">{{this.getReviews()[i]?.desc}}</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="star-ratings text-center">
+                <h3 class="text-lg font-semibold text-slate-300">Overall, how satisfied are you with Insights and Foresights Platform?</h3>
+                <div class="star-container">
+                    <span class="star-icon" data-start="1">&#9734;</span>
+                    <span class="star-icon" data-start="2">&#9734;</span>
+                    <span class="star-icon" data-start="3">&#9734;</span>
+                    <span class="star-icon" data-start="4">&#9734;</span>
+                    <span class="star-icon" data-start="5">&#9734;</span>
+                </div>
+            </div>
+            <div class="comments-container text-center mt-5">
+                <textarea class="w-[550px] px-5 py-2 text-center rounded font-semibold comments" rows="6" placeholder="Feedback or comments? (optional)"></textarea>
+            </div>
+            <div class="text-center mt-5">
+                <button type="submit" class="bg-blue-600 px-5 py-3 w-1/6 btn-submit font-semibold rounded">SUBMIT</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-overlay"></div>
