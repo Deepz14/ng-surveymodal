@@ -63,12 +63,24 @@
             </div>
             <div class="star-ratings text-center">
                 <h3 class="text-lg font-semibold text-slate-300">Overall, how satisfied are you with Insights and Foresights Platform?</h3>
-                <div class="star-container">
-                    <span class="star-icon" data-start="1">&#9734;</span>
-                    <span class="star-icon" data-start="2">&#9734;</span>
+                <!-- <div class="star-container">
+                    <span class="star-icon" data-start="1">&#9733;</span>
+                    <span (mouseover)="over()" *ngIf="this.showStar=== false; else startHover;" class="star-icon" data-start="2">&#9734;</span>
+                    <ng-template #startHover>
+                        <span (mouseout)="out()" class="star-icon" data-start="2">&#9733;</span>
+                    </ng-template>
                     <span class="star-icon" data-start="3">&#9734;</span>
                     <span class="star-icon" data-start="4">&#9734;</span>
                     <span class="star-icon" data-start="5">&#9734;</span>
+                </div> -->
+                <div class="star-container">
+                    <ng-container *ngFor="let star of starArr; let i=index;">
+                        <span (click)="onStarSelected(this.i)" *ngIf="star===false; else selectedStart;" (mouseover)="over($event)" (mouseout)="out($event)" 
+                        class="star-icon" [attr.data-star]="i" class="star-icon">&#9734;</span>
+                        <ng-template #selectedStart>
+                            <span (click)="onStarSelected(this.i)" class="star-icon"  [attr.data-star]="i">&#9733;</span>
+                        </ng-template>
+                    </ng-container>
                 </div>
             </div>
             <div class="comments-container text-center mt-5">

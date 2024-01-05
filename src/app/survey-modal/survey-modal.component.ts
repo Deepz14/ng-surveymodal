@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormArray } from '@angular/forms';
+import { first, map, of } from 'rxjs';
 
 @Component({
   selector: 'app-survey-modal',
@@ -10,6 +11,7 @@ export class SurveyModalComponent implements OnInit{
 
   @Output() closeSurvey = new EventEmitter<boolean>();
   surveyForm: any;
+  starArr = [false,false,false,false,false];
   constructor(private fb: FormBuilder) {}
   
 
@@ -21,6 +23,21 @@ export class SurveyModalComponent implements OnInit{
       reviews: this.fb.array([])
     });
     this.setReviews();
+  }
+
+  over(evt:any){
+    evt.target.innerText = "★";
+  }
+
+  out(evt:any){
+    evt.target.innerText = "☆";
+  }
+
+  onStarSelected(rating: any){
+    this.starArr = this.starArr.map((star, index) => {
+      star = (index <= rating) ? true : false;
+      return star;
+    });
   }
 
   setReviews(){

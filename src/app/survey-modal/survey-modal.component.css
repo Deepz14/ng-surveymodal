@@ -58,6 +58,11 @@
     font-size: 36px;
     padding: 0 10px;
     cursor: pointer;
+    color: gray;
+}
+
+.star-icon:hover{
+    color: goldenrod;
 }
 
 .comments{
